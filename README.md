@@ -1,6 +1,6 @@
 # Spacewar
 
-##Informazioni
+## Informazioni
 Alessandro Castelli
 
 Inizio: 09.09.2022
