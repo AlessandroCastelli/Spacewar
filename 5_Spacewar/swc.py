@@ -15,6 +15,7 @@ class Spacewar:
 		self.width, self.height = pygame.display.get_surface().get_size()
 		self.singleplayer = True
 		self.gravity = False
+		self.planet = False
 
 	def _init_pygame(self):
 		pygame.init()
@@ -37,6 +38,8 @@ class Spacewar:
 				self.singleplayer = not self.singleplayer
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_g) and self.game == 0:
 				self.gravity = not self.gravity
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_p) and self.game == 0:
+				self.planet = not self.planet
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_i) and (self.game == 0 or self.game == 1):
 				if self.game == 0:
 					self.game = 1
@@ -64,6 +67,9 @@ class Spacewar:
 		self.write = self._write_text("Press g to set gravity", 30, (255,255,255), self.width / 3 * 2.5, self.height / 2 + 200)
 		self.write = self._write_text("gravity: " + str(self.gravity), 30, (255,255,255), self.width / 3 * 2.5, self.height / 2 + 240)
 
+		self.write = self._write_text("Press p for the planet", 30, (255,255,255), self.width / 5, self.height / 2 + 360)
+		self.write = self._write_text("planet: " + str(self.planet), 30, (255,255,255), self.width / 5, self.height / 2 + 400)
+
 		self.write = self._write_text("Press i for info", 30, (255,255,255), self.width / 3 * 2.5, self.height / 2 + 400)
 
 		pygame.display.flip()
@@ -72,8 +78,10 @@ class Spacewar:
 		self.screen.fill((0,0,0))
 		self.write = self._write_text("Information", 90, (255,255,255), self.width / 2, self.height / 3.5)
 
-		self.write = self._write_text("player 1: ", 30, (255,255,255), self.width / 4, self.height / 2)
-		self.write = self._write_text("player 2: ", 30, (255,255,255), self.width / 4, self.height / 2 + 200)
+		self.write = self._write_text("player 1: movement with wasd, missle with y and laser with c", 30, (255,255,255), self.width / 2, self.height / 2)
+		self.write = self._write_text("player 2: movement with ijkl, missle with . and laser with n", 30, (255,255,255), self.width / 2, self.height / 2 + 200)
+
+		self.write = self._write_text("Press i to back home", 30, (255,255,255), self.width / 3 * 2.5, self.height / 2 + 400)
 
 		pygame.display.flip()
 
