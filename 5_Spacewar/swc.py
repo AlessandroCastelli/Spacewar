@@ -8,6 +8,8 @@ from spaceship import Spaceship
 import logging
 import logmanager
 
+logmanager.get_configured_logger()
+
 class Spacewar:
 
 	def __init__(self):
@@ -21,7 +23,6 @@ class Spacewar:
 		self.planet = False
 		self.spaceships = []
 		self.direction = None
-		logmanager.get_configured_logger()
 
 	def _init_pygame(self):
 		pygame.init()
@@ -33,10 +34,13 @@ class Spacewar:
 			self.clock.tick(60)
 			self._keyboard_input()
 			if self.game == 0:
+				#logging.debug('entering "_show_home"')
 				self._show_home()
 			if self.game == 1:
+				#logging.debug('entering "_show_info"')
 				self._show_info()
 			if self.game == 2:
+				#logging.debug('entering "_show_game"')
 				self._show_game()
 
 	def _keyboard_input(self):
@@ -55,14 +59,29 @@ class Spacewar:
 				else:
 					self.game = 0
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN) and self.game == 0:
-				self.spaceships[0] = Spaceship((self.width/2, self.height/2), Vector2(3, 0).rotate(0), 1)
-				self.spaceships[1] = Spaceship((self.width/2, self.height/2), Vector2(3, 0).rotate(0), 2)
+				logging.debug('creating spaceships')
+
+
+				ship1 = Spaceship((self.width*1/4, self.height/2), Vector2(3, 0).rotate(0), 0, 1)
+				self.spaceships.append(ship1)
+				logging.debug(f'ship: {len(self.spaceships)}')
+
+				ship2 = Spaceship((self.width*3/4, self.height/2), Vector2(3, 0).rotate(0), 0, 2)
+				self.spaceships.append(ship2)
+				logging.debug(f'ship: {len(self.spaceships)}')
+
+				logging.debug('setting game state')
 				self.game = 2
 				
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_d) and self.game == 2:
-				self.direction = "right"
+				self.spaceships[0].change_angle(-1)
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_a) and self.game == 2:
-				self.direction = "left"
+				self.spaceships[0].change_angle(1)
+
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_l) and self.game == 2 and not self.singleplayer:
+				self.spaceships[1].change_angle(-1)
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_j) and self.game == 2 and not self.singleplayer:
+				self.spaceships[1].change_angle(1)
 
 
 	def _write_text(self, string, fontSize, color, x, y):
@@ -104,12 +123,15 @@ class Spacewar:
 
 	def _show_game(self):
 		self.screen.fill((0,0,0))
+		#logging.debug('in loop')
 		try:
 			if self.singleplayer:
 				if not self.gravity and not self.planet:
 					for (i, spaceship) in enumerate(self.spaceships):
-						logging.info(f'loading ship {i}')
-						print(f'loading ship {i}')
+						spaceship.draw(self.screen, 500, 500)
+			else:
+				if not self.gravity and not self.planet:
+					for (i, spaceship) in enumerate(self.spaceships):
 						spaceship.draw(self.screen, 500, 500)
 		except Exception as e:
 			logging.exception('error loading ships')
