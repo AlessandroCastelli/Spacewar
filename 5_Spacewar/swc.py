@@ -75,12 +75,16 @@ class Spacewar:
 				
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_d) and self.game == 2:
 				self.spaceships[0].change_angle(-1)
+			elif not(event.type == pygame.KEYUP and event.key == pygame.K_d) and self.game == 2:
+				self.spaceships[0].change_angle(-1)
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_a) and self.game == 2:
 				self.spaceships[0].change_angle(1)
+			elif not(event.type == pygame.KEYUP and event.key == pygame.K_a) and self.game == 2:
+				self.spaceships[0].change_angle(1)
 
-			if (event.type == pygame.KEYDOWN and event.key == pygame.K_l) and self.game == 2 and not self.singleplayer:
+			if ((event.type == pygame.KEYDOWN and event.key == pygame.K_l) and not(event.type == pygame.KEYUP and event.key == pygame.K_l)) and self.game == 2 and not self.singleplayer:
 				self.spaceships[1].change_angle(-1)
-			if (event.type == pygame.KEYDOWN and event.key == pygame.K_j) and self.game == 2 and not self.singleplayer:
+			if ((event.type == pygame.KEYDOWN and event.key == pygame.K_j) and not(event.type == pygame.KEYUP and event.key == pygame.K_j)) and self.game == 2 and not self.singleplayer:
 				self.spaceships[1].change_angle(1)
 
 

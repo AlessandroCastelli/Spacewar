@@ -11388,3 +11388,159 @@ TypeError: atan2 expected 2 arguments, got 1
 2022-10-28 14:33:55,416 DEBUG 7708 5632 spaceship.py __init__():21 init done player 2
 2022-10-28 14:33:55,417 DEBUG 7708 5632 swc.py _keyboard_input():71 ship: 2
 2022-10-28 14:33:55,417 DEBUG 7708 5632 swc.py _keyboard_input():73 setting game state
+2022-11-11 10:22:00,376 DEBUG 13504 12472 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 10:22:01,957 DEBUG 13504 12472 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 10:22:01,957 DEBUG 13504 12472 spaceship.py __init__():14 init start player 1
+2022-11-11 10:22:01,958 DEBUG 13504 12472 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 10:22:01,981 DEBUG 13504 12472 spaceship.py __init__():21 init done player 1
+2022-11-11 10:22:01,981 DEBUG 13504 12472 swc.py _keyboard_input():67 ship: 1
+2022-11-11 10:22:01,981 DEBUG 13504 12472 spaceship.py __init__():14 init start player 2
+2022-11-11 10:22:01,981 DEBUG 13504 12472 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 10:22:01,986 DEBUG 13504 12472 spaceship.py __init__():21 init done player 2
+2022-11-11 10:22:01,986 DEBUG 13504 12472 swc.py _keyboard_input():71 ship: 2
+2022-11-11 10:22:01,986 DEBUG 13504 12472 swc.py _keyboard_input():73 setting game state
+2022-11-11 10:22:27,055 DEBUG 8008 1780 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 10:22:35,701 DEBUG 8008 1780 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 10:22:35,701 DEBUG 8008 1780 spaceship.py __init__():14 init start player 1
+2022-11-11 10:22:35,702 DEBUG 8008 1780 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 10:22:35,702 DEBUG 8008 1780 spaceship.py __init__():21 init done player 1
+2022-11-11 10:22:35,702 DEBUG 8008 1780 swc.py _keyboard_input():67 ship: 1
+2022-11-11 10:22:35,702 DEBUG 8008 1780 spaceship.py __init__():14 init start player 2
+2022-11-11 10:22:35,702 DEBUG 8008 1780 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 10:22:35,703 DEBUG 8008 1780 spaceship.py __init__():21 init done player 2
+2022-11-11 10:22:35,703 DEBUG 8008 1780 swc.py _keyboard_input():71 ship: 2
+2022-11-11 10:22:35,703 DEBUG 8008 1780 swc.py _keyboard_input():73 setting game state
+2022-11-11 10:32:41,417 DEBUG 13524 8244 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 10:32:43,900 DEBUG 13524 8244 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 10:32:43,900 DEBUG 13524 8244 spaceship.py __init__():14 init start player 1
+2022-11-11 10:32:43,900 DEBUG 13524 8244 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 10:32:43,901 DEBUG 13524 8244 spaceship.py __init__():21 init done player 1
+2022-11-11 10:32:43,901 DEBUG 13524 8244 swc.py _keyboard_input():67 ship: 1
+2022-11-11 10:32:43,902 DEBUG 13524 8244 spaceship.py __init__():14 init start player 2
+2022-11-11 10:32:43,902 DEBUG 13524 8244 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 10:32:43,902 DEBUG 13524 8244 spaceship.py __init__():21 init done player 2
+2022-11-11 10:32:43,902 DEBUG 13524 8244 swc.py _keyboard_input():71 ship: 2
+2022-11-11 10:32:43,903 DEBUG 13524 8244 swc.py _keyboard_input():73 setting game state
+2022-11-11 10:33:03,721 DEBUG 3792 9148 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 10:33:08,888 DEBUG 3792 9148 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 10:33:08,888 DEBUG 3792 9148 spaceship.py __init__():14 init start player 1
+2022-11-11 10:33:08,888 DEBUG 3792 9148 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 10:33:08,889 DEBUG 3792 9148 spaceship.py __init__():21 init done player 1
+2022-11-11 10:33:08,889 DEBUG 3792 9148 swc.py _keyboard_input():67 ship: 1
+2022-11-11 10:33:08,890 DEBUG 3792 9148 spaceship.py __init__():14 init start player 2
+2022-11-11 10:33:08,890 DEBUG 3792 9148 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 10:33:08,890 DEBUG 3792 9148 spaceship.py __init__():21 init done player 2
+2022-11-11 10:33:08,890 DEBUG 3792 9148 swc.py _keyboard_input():71 ship: 2
+2022-11-11 10:33:08,890 DEBUG 3792 9148 swc.py _keyboard_input():73 setting game state
+2022-11-11 10:35:00,734 DEBUG 480 9408 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 10:35:02,865 DEBUG 480 9408 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 10:35:02,865 DEBUG 480 9408 spaceship.py __init__():14 init start player 1
+2022-11-11 10:35:02,866 DEBUG 480 9408 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 10:35:02,866 DEBUG 480 9408 spaceship.py __init__():21 init done player 1
+2022-11-11 10:35:02,867 DEBUG 480 9408 swc.py _keyboard_input():67 ship: 1
+2022-11-11 10:35:02,867 DEBUG 480 9408 spaceship.py __init__():14 init start player 2
+2022-11-11 10:35:02,867 DEBUG 480 9408 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 10:35:02,868 DEBUG 480 9408 spaceship.py __init__():21 init done player 2
+2022-11-11 10:35:02,868 DEBUG 480 9408 swc.py _keyboard_input():71 ship: 2
+2022-11-11 10:35:02,868 DEBUG 480 9408 swc.py _keyboard_input():73 setting game state
+2022-11-11 10:42:49,108 DEBUG 5064 3040 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 10:42:55,760 DEBUG 12212 12624 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 10:51:47,265 DEBUG 4692 8644 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 10:51:49,180 DEBUG 4692 8644 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 10:51:49,180 DEBUG 4692 8644 spaceship.py __init__():14 init start player 1
+2022-11-11 10:51:49,181 DEBUG 4692 8644 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 10:51:49,182 DEBUG 4692 8644 spaceship.py __init__():21 init done player 1
+2022-11-11 10:51:49,182 DEBUG 4692 8644 swc.py _keyboard_input():67 ship: 1
+2022-11-11 10:51:49,183 DEBUG 4692 8644 spaceship.py __init__():14 init start player 2
+2022-11-11 10:51:49,183 DEBUG 4692 8644 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 10:51:49,183 DEBUG 4692 8644 spaceship.py __init__():21 init done player 2
+2022-11-11 10:51:49,184 DEBUG 4692 8644 swc.py _keyboard_input():71 ship: 2
+2022-11-11 10:51:49,184 DEBUG 4692 8644 swc.py _keyboard_input():73 setting game state
+2022-11-11 10:55:30,246 DEBUG 6940 2836 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 10:55:31,939 DEBUG 6940 2836 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 10:55:31,939 DEBUG 6940 2836 spaceship.py __init__():14 init start player 1
+2022-11-11 10:55:31,940 DEBUG 6940 2836 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 10:55:31,940 DEBUG 6940 2836 spaceship.py __init__():21 init done player 1
+2022-11-11 10:55:31,940 DEBUG 6940 2836 swc.py _keyboard_input():67 ship: 1
+2022-11-11 10:55:31,941 DEBUG 6940 2836 spaceship.py __init__():14 init start player 2
+2022-11-11 10:55:31,941 DEBUG 6940 2836 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 10:55:31,941 DEBUG 6940 2836 spaceship.py __init__():21 init done player 2
+2022-11-11 10:55:31,941 DEBUG 6940 2836 swc.py _keyboard_input():71 ship: 2
+2022-11-11 10:55:31,941 DEBUG 6940 2836 swc.py _keyboard_input():73 setting game state
+2022-11-11 10:57:06,199 DEBUG 6456 2812 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 10:57:07,674 DEBUG 6456 2812 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 10:57:07,674 DEBUG 6456 2812 spaceship.py __init__():14 init start player 1
+2022-11-11 10:57:07,675 DEBUG 6456 2812 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 10:57:07,676 DEBUG 6456 2812 spaceship.py __init__():21 init done player 1
+2022-11-11 10:57:07,676 DEBUG 6456 2812 swc.py _keyboard_input():67 ship: 1
+2022-11-11 10:57:07,676 DEBUG 6456 2812 spaceship.py __init__():14 init start player 2
+2022-11-11 10:57:07,677 DEBUG 6456 2812 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 10:57:07,677 DEBUG 6456 2812 spaceship.py __init__():21 init done player 2
+2022-11-11 10:57:07,677 DEBUG 6456 2812 swc.py _keyboard_input():71 ship: 2
+2022-11-11 10:57:07,677 DEBUG 6456 2812 swc.py _keyboard_input():73 setting game state
+2022-11-11 11:01:15,712 DEBUG 14028 1928 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 11:01:17,041 DEBUG 14028 1928 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 11:01:17,041 DEBUG 14028 1928 spaceship.py __init__():14 init start player 1
+2022-11-11 11:01:17,042 DEBUG 14028 1928 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 11:01:17,043 DEBUG 14028 1928 spaceship.py __init__():21 init done player 1
+2022-11-11 11:01:17,043 DEBUG 14028 1928 swc.py _keyboard_input():67 ship: 1
+2022-11-11 11:01:17,043 DEBUG 14028 1928 spaceship.py __init__():14 init start player 2
+2022-11-11 11:01:17,044 DEBUG 14028 1928 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 11:01:17,044 DEBUG 14028 1928 spaceship.py __init__():21 init done player 2
+2022-11-11 11:01:17,044 DEBUG 14028 1928 swc.py _keyboard_input():71 ship: 2
+2022-11-11 11:01:17,045 DEBUG 14028 1928 swc.py _keyboard_input():73 setting game state
+2022-11-11 11:02:50,364 DEBUG 8180 8476 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 11:02:50,508 DEBUG 8180 8476 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 11:02:50,509 DEBUG 8180 8476 spaceship.py __init__():14 init start player 1
+2022-11-11 11:02:50,511 DEBUG 8180 8476 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 11:02:50,512 DEBUG 8180 8476 spaceship.py __init__():21 init done player 1
+2022-11-11 11:02:50,512 DEBUG 8180 8476 swc.py _keyboard_input():67 ship: 1
+2022-11-11 11:02:50,513 DEBUG 8180 8476 spaceship.py __init__():14 init start player 2
+2022-11-11 11:02:50,513 DEBUG 8180 8476 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 11:02:50,513 DEBUG 8180 8476 spaceship.py __init__():21 init done player 2
+2022-11-11 11:02:50,514 DEBUG 8180 8476 swc.py _keyboard_input():71 ship: 2
+2022-11-11 11:02:50,514 DEBUG 8180 8476 swc.py _keyboard_input():73 setting game state
+2022-11-11 11:04:46,032 DEBUG 9300 14052 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 11:04:46,899 DEBUG 9300 14052 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 11:04:46,899 DEBUG 9300 14052 spaceship.py __init__():14 init start player 1
+2022-11-11 11:04:46,900 DEBUG 9300 14052 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 11:04:46,900 DEBUG 9300 14052 spaceship.py __init__():21 init done player 1
+2022-11-11 11:04:46,900 DEBUG 9300 14052 swc.py _keyboard_input():67 ship: 1
+2022-11-11 11:04:46,901 DEBUG 9300 14052 spaceship.py __init__():14 init start player 2
+2022-11-11 11:04:46,901 DEBUG 9300 14052 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 11:04:46,901 DEBUG 9300 14052 spaceship.py __init__():21 init done player 2
+2022-11-11 11:04:46,901 DEBUG 9300 14052 swc.py _keyboard_input():71 ship: 2
+2022-11-11 11:04:46,902 DEBUG 9300 14052 swc.py _keyboard_input():73 setting game state
+2022-11-11 11:08:39,442 DEBUG 3736 12160 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 11:08:40,644 DEBUG 3736 12160 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 11:08:40,644 DEBUG 3736 12160 spaceship.py __init__():14 init start player 1
+2022-11-11 11:08:40,648 DEBUG 3736 12160 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 11:08:40,648 DEBUG 3736 12160 spaceship.py __init__():21 init done player 1
+2022-11-11 11:08:40,649 DEBUG 3736 12160 swc.py _keyboard_input():67 ship: 1
+2022-11-11 11:08:40,649 DEBUG 3736 12160 spaceship.py __init__():14 init start player 2
+2022-11-11 11:08:40,649 DEBUG 3736 12160 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 11:08:40,650 DEBUG 3736 12160 spaceship.py __init__():21 init done player 2
+2022-11-11 11:08:40,650 DEBUG 3736 12160 swc.py _keyboard_input():71 ship: 2
+2022-11-11 11:08:40,650 DEBUG 3736 12160 swc.py _keyboard_input():73 setting game state
+2022-11-11 11:13:20,240 DEBUG 2828 8864 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 11:13:21,462 DEBUG 2828 8864 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 11:13:21,463 DEBUG 2828 8864 spaceship.py __init__():14 init start player 1
+2022-11-11 11:13:21,463 DEBUG 2828 8864 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 11:13:21,464 DEBUG 2828 8864 spaceship.py __init__():21 init done player 1
+2022-11-11 11:13:21,464 DEBUG 2828 8864 swc.py _keyboard_input():67 ship: 1
+2022-11-11 11:13:21,464 DEBUG 2828 8864 spaceship.py __init__():14 init start player 2
+2022-11-11 11:13:21,464 DEBUG 2828 8864 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 11:13:21,465 DEBUG 2828 8864 spaceship.py __init__():21 init done player 2
+2022-11-11 11:13:21,465 DEBUG 2828 8864 swc.py _keyboard_input():71 ship: 2
+2022-11-11 11:13:21,465 DEBUG 2828 8864 swc.py _keyboard_input():73 setting game state
+2022-11-11 11:22:58,067 DEBUG 3580 13532 swc.py _init_pygame():30 SPACEWAR
+2022-11-11 11:22:58,671 DEBUG 3580 13532 swc.py _keyboard_input():62 creating spaceships
+2022-11-11 11:22:58,671 DEBUG 3580 13532 spaceship.py __init__():14 init start player 1
+2022-11-11 11:22:58,671 DEBUG 3580 13532 spaceship.py _get_sprite():38 loading sprite player1
+2022-11-11 11:22:58,672 DEBUG 3580 13532 spaceship.py __init__():21 init done player 1
+2022-11-11 11:22:58,672 DEBUG 3580 13532 swc.py _keyboard_input():67 ship: 1
+2022-11-11 11:22:58,673 DEBUG 3580 13532 spaceship.py __init__():14 init start player 2
+2022-11-11 11:22:58,673 DEBUG 3580 13532 spaceship.py _get_sprite():38 loading sprite player2
+2022-11-11 11:22:58,673 DEBUG 3580 13532 spaceship.py __init__():21 init done player 2
+2022-11-11 11:22:58,673 DEBUG 3580 13532 swc.py _keyboard_input():71 ship: 2
+2022-11-11 11:22:58,674 DEBUG 3580 13532 swc.py _keyboard_input():73 setting game state

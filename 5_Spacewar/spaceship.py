@@ -23,7 +23,7 @@ class Spaceship:
     def draw(self, surface, x, y):
 		#angolo
         #angle = atan2(self.psy - y,x - self.psx) * 180 / pi
-        angle = self.angle * 360 / pi
+        angle = self.angle * 15 / pi
 		#rotazione immagine
         rotated_image = rotozoom(self.sprite, angle, 1.0)
 		#coordinate immagine ruotata
