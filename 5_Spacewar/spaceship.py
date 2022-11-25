@@ -10,22 +10,21 @@ from math import atan2, pi
 import logging
 class Spaceship:
 
-    def __init__(self,position, velocity, angle, player):
+    def __init__(self, position, angle, player):
         logging.debug(f'init start player {player}')
-        self.psx, self.psy = Vector2(position)
+        self.position = Vector2(position)
+        self.psx, self.psy = Vector2(self.position)
         self.angle = angle
+        self.speed = 3
         self.sprite = _get_sprite("player" + str(player))
         self.radius = self.sprite.get_width() / 2
-        #self.velocity = Vector2(velocity)
-        self.direction = None
+        self.velocity = Vector2(self.speed, 0).rotate(self.angle)
         logging.debug(f'init done player {player}')
 
-    def draw(self, surface, x, y):
-		#angolo
-        #angle = atan2(self.psy - y,x - self.psx) * 180 / pi
-        angle = self.angle * 15 / pi
+    def draw(self, surface):
+        self.psx, self.psy = self.position
 		#rotazione immagine
-        rotated_image = rotozoom(self.sprite, angle, 1.0)
+        rotated_image = rotozoom(self.sprite, self.angle, 1.0)
 		#coordinate immagine ruotata
         blit_position = Vector2(self.psx, self.psy) - (Vector2(rotated_image.get_size())/2)
 
@@ -33,6 +32,10 @@ class Spaceship:
 
     def change_angle(self, value):
         self.angle = self.angle + value
+        self.velocity = self.velocity.rotate(self.angle)
+
+    def move(self):
+        self.position = self.position + self.velocity
 
 def _get_sprite(name, with_alpha=True):
     logging.debug(f'loading sprite {name}')
