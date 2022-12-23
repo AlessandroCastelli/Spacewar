@@ -55548,3 +55548,167 @@ UnboundLocalError: local variable 'missle' referenced before assignment
 2022-12-22 22:45:43,264 DEBUG 12904 7816 swc.py _keyboard_input():154 creating laser
 2022-12-22 22:45:43,264 DEBUG 12904 7816 laser.py __init__():15 entering laser ctor
 2022-12-22 22:45:43,265 DEBUG 12904 7816 methods.py _get_sprite():6 loading sprite laser
+2022-12-23 08:19:52,031 DEBUG 8328 5228 swc.py _init_pygame():44 SPACEWAR
+2022-12-23 08:19:57,676 DEBUG 8328 5228 swc.py _keyboard_input():85 creating spaceships
+2022-12-23 08:19:57,676 DEBUG 8328 5228 spaceship.py __init__():15 init start player 1
+2022-12-23 08:19:57,676 DEBUG 8328 5228 methods.py _get_sprite():6 loading sprite player1
+2022-12-23 08:19:57,754 DEBUG 8328 5228 spaceship.py __init__():24 init done player 1
+2022-12-23 08:19:57,754 DEBUG 8328 5228 swc.py _keyboard_input():90 ship: 1
+2022-12-23 08:19:57,754 DEBUG 8328 5228 spaceship.py __init__():15 init start player 2
+2022-12-23 08:19:57,755 DEBUG 8328 5228 methods.py _get_sprite():6 loading sprite player2
+2022-12-23 08:19:57,759 DEBUG 8328 5228 spaceship.py __init__():24 init done player 2
+2022-12-23 08:19:57,759 DEBUG 8328 5228 swc.py _keyboard_input():94 ship: 2
+2022-12-23 08:19:57,759 DEBUG 8328 5228 planet.py __init__():12 entering planet ctor
+2022-12-23 08:19:57,760 DEBUG 8328 5228 methods.py _get_sprite():6 loading sprite planet
+2022-12-23 08:19:57,768 DEBUG 8328 5228 swc.py _keyboard_input():99 setting game state
+2022-12-23 08:20:08,508 DEBUG 8328 5228 swc.py _keyboard_input():140 creating missle
+2022-12-23 08:20:08,508 DEBUG 8328 5228 missle.py __init__():15 entering missle ctor
+2022-12-23 08:20:08,508 DEBUG 8328 5228 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 08:20:17,565 DEBUG 8328 5228 swc.py _keyboard_input():140 creating missle
+2022-12-23 08:20:17,565 DEBUG 8328 5228 missle.py __init__():15 entering missle ctor
+2022-12-23 08:20:17,565 DEBUG 8328 5228 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 08:20:30,931 DEBUG 8328 5228 swc.py _keyboard_input():154 creating laser
+2022-12-23 08:20:30,931 DEBUG 8328 5228 laser.py __init__():15 entering laser ctor
+2022-12-23 08:20:30,931 DEBUG 8328 5228 methods.py _get_sprite():6 loading sprite laser
+2022-12-23 08:20:37,218 DEBUG 8328 5228 swc.py _keyboard_input():160 creating laser
+2022-12-23 08:20:37,218 DEBUG 8328 5228 laser.py __init__():15 entering laser ctor
+2022-12-23 08:20:37,218 DEBUG 8328 5228 methods.py _get_sprite():6 loading sprite laser
+2022-12-23 08:20:37,386 ERROR 8328 5228 swc.py _show_game():306 error loading ships
+Traceback (most recent call last):
+  File "E:\Scuola\3.2\Progetti\Spacewar\5_Spacewar\swc.py", line 302, in _show_game
+    if self.planet and self.laser2.collides_with(self.planetgame):
+AttributeError: 'NoneType' object has no attribute 'collides_with'
+2022-12-23 09:11:50,857 DEBUG 5228 11448 swc.py _init_pygame():44 SPACEWAR
+2022-12-23 09:11:51,551 DEBUG 5228 11448 swc.py _keyboard_input():85 creating spaceships
+2022-12-23 09:11:51,552 DEBUG 5228 11448 spaceship.py __init__():15 init start player 1
+2022-12-23 09:11:51,552 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite player1
+2022-12-23 09:11:51,555 DEBUG 5228 11448 spaceship.py __init__():24 init done player 1
+2022-12-23 09:11:51,556 DEBUG 5228 11448 swc.py _keyboard_input():90 ship: 1
+2022-12-23 09:11:51,556 DEBUG 5228 11448 spaceship.py __init__():15 init start player 2
+2022-12-23 09:11:51,556 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite player2
+2022-12-23 09:11:51,559 DEBUG 5228 11448 spaceship.py __init__():24 init done player 2
+2022-12-23 09:11:51,559 DEBUG 5228 11448 swc.py _keyboard_input():94 ship: 2
+2022-12-23 09:11:51,559 DEBUG 5228 11448 swc.py _keyboard_input():99 setting game state
+2022-12-23 09:11:54,110 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:11:54,111 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:11:54,112 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:00,077 DEBUG 5228 11448 swc.py _keyboard_input():154 creating laser
+2022-12-23 09:12:00,077 DEBUG 5228 11448 laser.py __init__():15 entering laser ctor
+2022-12-23 09:12:00,077 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite laser
+2022-12-23 09:12:06,486 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:06,486 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:06,486 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:07,040 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:07,040 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:07,041 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:09,632 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:09,632 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:09,639 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:11,611 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:11,611 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:11,612 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:12,374 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:12,374 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:12,375 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:20,511 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:20,511 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:20,512 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:21,648 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:21,648 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:21,652 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:23,133 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:23,133 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:23,139 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:23,560 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:23,560 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:23,561 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:24,253 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:24,253 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:24,254 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:24,907 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:24,907 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:24,908 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:25,354 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:26,393 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:26,393 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:26,394 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:27,438 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:27,438 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:27,439 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:12:31,192 DEBUG 5228 11448 swc.py _keyboard_input():140 creating missle
+2022-12-23 09:12:31,192 DEBUG 5228 11448 missle.py __init__():15 entering missle ctor
+2022-12-23 09:12:31,193 DEBUG 5228 11448 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:13:01,853 DEBUG 2116 10304 swc.py _init_pygame():39 SPACEWAR
+2022-12-23 09:13:02,518 DEBUG 2116 10304 swc.py _keyboard_input():80 creating spaceships
+2022-12-23 09:13:02,518 DEBUG 2116 10304 spaceship.py __init__():15 init start player 1
+2022-12-23 09:13:02,521 DEBUG 2116 10304 methods.py _get_sprite():6 loading sprite player1
+2022-12-23 09:13:02,521 DEBUG 2116 10304 spaceship.py __init__():24 init done player 1
+2022-12-23 09:13:02,521 DEBUG 2116 10304 swc.py _keyboard_input():85 ship: 1
+2022-12-23 09:13:02,522 DEBUG 2116 10304 spaceship.py __init__():15 init start player 2
+2022-12-23 09:13:02,522 DEBUG 2116 10304 methods.py _get_sprite():6 loading sprite player2
+2022-12-23 09:13:02,522 DEBUG 2116 10304 spaceship.py __init__():24 init done player 2
+2022-12-23 09:13:02,522 DEBUG 2116 10304 swc.py _keyboard_input():89 ship: 2
+2022-12-23 09:13:02,523 DEBUG 2116 10304 swc.py _keyboard_input():94 setting game state
+2022-12-23 09:13:04,532 DEBUG 2116 10304 swc.py _keyboard_input():129 creating missle
+2022-12-23 09:13:04,532 DEBUG 2116 10304 missle.py __init__():15 entering missle ctor
+2022-12-23 09:13:04,538 DEBUG 2116 10304 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:13:05,569 DEBUG 2116 10304 swc.py _keyboard_input():129 creating missle
+2022-12-23 09:13:05,569 DEBUG 2116 10304 missle.py __init__():15 entering missle ctor
+2022-12-23 09:13:05,570 DEBUG 2116 10304 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:13:09,878 DEBUG 8804 9516 swc.py _init_pygame():39 SPACEWAR
+2022-12-23 09:13:12,695 DEBUG 8804 9516 swc.py _keyboard_input():80 creating spaceships
+2022-12-23 09:13:12,695 DEBUG 8804 9516 spaceship.py __init__():15 init start player 1
+2022-12-23 09:13:12,695 DEBUG 8804 9516 methods.py _get_sprite():6 loading sprite player1
+2022-12-23 09:13:12,696 DEBUG 8804 9516 spaceship.py __init__():24 init done player 1
+2022-12-23 09:13:12,696 DEBUG 8804 9516 swc.py _keyboard_input():85 ship: 1
+2022-12-23 09:13:12,697 DEBUG 8804 9516 spaceship.py __init__():15 init start player 2
+2022-12-23 09:13:12,697 DEBUG 8804 9516 methods.py _get_sprite():6 loading sprite player2
+2022-12-23 09:13:12,697 DEBUG 8804 9516 spaceship.py __init__():24 init done player 2
+2022-12-23 09:13:12,697 DEBUG 8804 9516 swc.py _keyboard_input():89 ship: 2
+2022-12-23 09:13:12,698 DEBUG 8804 9516 planet.py __init__():12 entering planet ctor
+2022-12-23 09:13:12,698 DEBUG 8804 9516 methods.py _get_sprite():6 loading sprite planet
+2022-12-23 09:13:12,702 DEBUG 8804 9516 swc.py _keyboard_input():94 setting game state
+2022-12-23 09:13:15,307 DEBUG 8804 9516 swc.py _keyboard_input():129 creating missle
+2022-12-23 09:13:15,308 DEBUG 8804 9516 missle.py __init__():15 entering missle ctor
+2022-12-23 09:13:15,310 DEBUG 8804 9516 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:13:23,241 DEBUG 8804 9516 swc.py _keyboard_input():149 creating laser
+2022-12-23 09:13:23,241 DEBUG 8804 9516 laser.py __init__():15 entering laser ctor
+2022-12-23 09:13:23,242 DEBUG 8804 9516 methods.py _get_sprite():6 loading sprite laser
+2022-12-23 09:13:24,970 DEBUG 8804 9516 swc.py _keyboard_input():143 creating laser
+2022-12-23 09:13:24,970 DEBUG 8804 9516 laser.py __init__():15 entering laser ctor
+2022-12-23 09:13:24,972 DEBUG 8804 9516 methods.py _get_sprite():6 loading sprite laser
+2022-12-23 09:13:29,811 DEBUG 8804 9516 swc.py _keyboard_input():129 creating missle
+2022-12-23 09:13:29,811 DEBUG 8804 9516 missle.py __init__():15 entering missle ctor
+2022-12-23 09:13:29,812 DEBUG 8804 9516 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:13:31,691 DEBUG 8804 9516 swc.py _keyboard_input():129 creating missle
+2022-12-23 09:13:31,691 DEBUG 8804 9516 missle.py __init__():15 entering missle ctor
+2022-12-23 09:13:31,692 DEBUG 8804 9516 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:13:37,017 DEBUG 8804 9516 swc.py _keyboard_input():129 creating missle
+2022-12-23 09:13:37,017 DEBUG 8804 9516 missle.py __init__():15 entering missle ctor
+2022-12-23 09:13:37,022 DEBUG 8804 9516 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:13:40,283 DEBUG 8804 9516 swc.py _keyboard_input():129 creating missle
+2022-12-23 09:13:40,283 DEBUG 8804 9516 missle.py __init__():15 entering missle ctor
+2022-12-23 09:13:40,289 DEBUG 8804 9516 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 09:13:41,275 ERROR 8804 9516 swc.py _show_game():295 error loading ships
+Traceback (most recent call last):
+  File "E:\Scuola\3.2\Progetti\Spacewar\5_Spacewar\swc.py", line 248, in _show_game
+    if self.planet and missle.collides_with(self.planetgame):
+UnboundLocalError: local variable 'missle' referenced before assignment
+2022-12-23 09:13:41,898 DEBUG 8804 9516 swc.py _keyboard_input():129 creating missle
+2022-12-23 09:13:41,898 DEBUG 8804 9516 missle.py __init__():15 entering missle ctor
+2022-12-23 09:13:41,899 DEBUG 8804 9516 methods.py _get_sprite():6 loading sprite bullet
+2022-12-23 10:54:49,740 DEBUG 10672 11476 swc.py _init_pygame():39 SPACEWAR
+2022-12-23 10:54:55,340 DEBUG 10672 11476 spaceship.py __init__():15 init start player 1
+2022-12-23 10:54:55,342 DEBUG 10672 11476 spaceship.py __init__():24 init done player 1
+2022-12-23 10:54:55,342 DEBUG 10672 11476 spaceship.py __init__():15 init start player 2
+2022-12-23 10:54:55,343 DEBUG 10672 11476 spaceship.py __init__():24 init done player 2
+2022-12-23 10:55:00,653 ERROR 10672 11476 swc.py _show_game():280 error loading ships
+Traceback (most recent call last):
+  File "E:\Scuola\3.2\Progetti\Spacewar\5_Spacewar\swc.py", line 233, in _show_game
+    if self.planet and missle.collides_with(self.planetgame):
+UnboundLocalError: local variable 'missle' referenced before assignment
+2022-12-23 14:35:10,088 DEBUG 14908 6860 swc.py _init_pygame():39 SPACEWAR
+2022-12-23 14:35:10,762 DEBUG 14908 6860 spaceship.py __init__():15 init start player 1
+2022-12-23 14:35:10,763 DEBUG 14908 6860 spaceship.py __init__():24 init done player 1
+2022-12-23 14:35:10,763 DEBUG 14908 6860 spaceship.py __init__():15 init start player 2
+2022-12-23 14:35:10,764 DEBUG 14908 6860 spaceship.py __init__():24 init done player 2

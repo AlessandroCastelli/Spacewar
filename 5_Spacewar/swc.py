@@ -33,11 +33,6 @@ class Spacewar:
 		self.laser1 = None
 		self.laser2 = None
 
-		self.p1position = (0,0)
-		self.p2position = (0,0)
-		self.p1angle = 0
-		self.p2angle = 0
-
 	def _init_pygame(self):
 		pygame.init()
 		pygame.display.set_caption("SPACEWAR")
@@ -48,13 +43,10 @@ class Spacewar:
 			self.clock.tick(60)
 			self._keyboard_input()
 			if self.game == 0:
-				#logging.debug('entering "_show_home"')
 				self._show_home()
 			if self.game == 1:
-				#logging.debug('entering "_show_info"')
 				self._show_info()
 			if self.game == 2:
-				#logging.debug('entering "_show_game"')
 				self._show_game()
 			if self.game == 3:
 				self._show_end()
@@ -82,21 +74,17 @@ class Spacewar:
 				else:
 					self.game = 0
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN) and self.game == 0:
-				logging.debug('creating spaceships')
 
 
 				ship1 = Spaceship((self.width*1/4, self.height/2), 0, self.player1)
 				self.spaceships.append(ship1)
-				logging.debug(f'ship: {len(self.spaceships)}')
 
 				ship2 = Spaceship((self.width*3/4, self.height/2), 180, self.player2)
 				self.spaceships.append(ship2)
-				logging.debug(f'ship: {len(self.spaceships)}')
 
 				if self.planet:
 					self.planetgame = Planet((self.width/2, self.height/2))
 				
-				logging.debug('setting game state')
 				self.game = 2
 			
 			keys = pygame.key.get_pressed()
@@ -121,45 +109,31 @@ class Spacewar:
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_w) and self.game == 2:
 				self.spaceships[0].start = True
 				self.spaceships[0].update_velocity()
-			#elif (keys[pygame.K_w]) and self.game == 2:
-				#self.spaceships[0].move()
 
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_i) and self.game == 2 and self.singleplayer == False:
 				self.spaceships[1].start = True
 				self.spaceships[1].update_velocity()
-			#elif (keys[pygame.K_i]) and self.game == 2:
-				#self.spaceships[1].move()
-			
-			if self.game == 2:
-				self.p1angle = self.spaceships[0].new_angle
-				self.p2angle = self.spaceships[1].new_angle
-				self.p1position = self.spaceships[0].position
-				self.p2position = self.spaceships[1].position
 
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_e) and self.game == 2:
-				logging.debug('creating missle')
 				if self.spaceships[0].energy > self.spaceships[0].energy_missle:
-					missle = Missle(self.p1position, self.p1angle)
+					missle = Missle(self.spaceships[0].position, self.spaceships[0].new_angle)
 					self.missles1.append(missle)
 					self.spaceships[0].energy = self.spaceships[0].energy - self.spaceships[0].energy_missle
 			
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_o) and self.game == 2 and self.singleplayer == False:
-				logging.debug('creating missle')
 				if self.spaceships[1].energy > self.spaceships[1].energy_missle:
-					missle = Missle(self.p2position, self.p2angle)
+					missle = Missle(self.spaceships[1].position, self.spaceships[1].new_angle)
 					self.missles2.append(missle)
 					self.spaceships[1].energy = self.spaceships[1].energy - self.spaceships[1].energy_missle
 			
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_q) and self.game == 2:
-				logging.debug('creating laser')
 				if self.spaceships[0].energy >= self.spaceships[0].energy_laser:
-					self.laser1 = Laser(self.p1position, self.p1angle)
+					self.laser1 = Laser(self.spaceships[0].position, self.spaceships[0].new_angle)
 					self.spaceships[0].energy = self.spaceships[0].energy - self.spaceships[0].energy_laser
 			
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_u) and self.game == 2 and self.singleplayer == False:
-				logging.debug('creating laser')
 				if self.spaceships[1].energy >= self.spaceships[1].energy_laser:
-					self.laser2 = Laser(self.p2position, self.p2angle)
+					self.laser2 = Laser(self.spaceships[1].position, self.spaceships[1].new_angle)
 					self.spaceships[1].energy = self.spaceships[1].energy - self.spaceships[1].energy_laser
 			
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_h) and self.game == 3:

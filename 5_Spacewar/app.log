@@ -22503,3 +22503,18 @@ Traceback (most recent call last):
   File "D:\Scuola\3.2\Progetti\Spacewar\5_Spacewar\swc.py", line 259, in _show_game
     if self.planet and missle.collides_with(self.planetgame):
 UnboundLocalError: local variable 'missle' referenced before assignment
+2022-12-23 08:20:37,386 ERROR 8328 5228 swc.py _show_game():306 error loading ships
+Traceback (most recent call last):
+  File "E:\Scuola\3.2\Progetti\Spacewar\5_Spacewar\swc.py", line 302, in _show_game
+    if self.planet and self.laser2.collides_with(self.planetgame):
+AttributeError: 'NoneType' object has no attribute 'collides_with'
+2022-12-23 09:13:41,275 ERROR 8804 9516 swc.py _show_game():295 error loading ships
+Traceback (most recent call last):
+  File "E:\Scuola\3.2\Progetti\Spacewar\5_Spacewar\swc.py", line 248, in _show_game
+    if self.planet and missle.collides_with(self.planetgame):
+UnboundLocalError: local variable 'missle' referenced before assignment
+2022-12-23 10:55:00,653 ERROR 10672 11476 swc.py _show_game():280 error loading ships
+Traceback (most recent call last):
+  File "E:\Scuola\3.2\Progetti\Spacewar\5_Spacewar\swc.py", line 233, in _show_game
+    if self.planet and missle.collides_with(self.planetgame):
+UnboundLocalError: local variable 'missle' referenced before assignment

@@ -12,7 +12,6 @@ import logmanager
 
 class Laser(Entity):
     def __init__(self, position, angle):
-        logging.debug('entering laser ctor')
         self.damage = 2
         super().__init__(
 			position, _get_sprite("laser"), 11, angle

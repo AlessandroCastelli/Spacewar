@@ -12,7 +12,6 @@ import logmanager
 
 class Missle(Entity):
     def __init__(self, position, angle):
-        logging.debug('entering missle ctor')
         self.damage = 1
         super().__init__(
 			position, _get_sprite("bullet"), 8, angle
