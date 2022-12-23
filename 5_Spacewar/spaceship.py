@@ -5,47 +5,27 @@ import pygame
 from pygame.math import Vector2
 from pygame.image import load
 from pygame.transform import rotozoom
+from entity import Entity
 from math import atan2, pi
+from methods import _get_sprite
 
 import logging
-class Spaceship:
-
+class Spaceship(Entity):
     def __init__(self, position, angle, player):
         logging.debug(f'init start player {player}')
-        self.position = Vector2(position)
-        self.psx, self.psy = Vector2(self.position)
-        self.angle = angle
-        self.speed = 3
-        self.sprite = _get_sprite("player" + str(player))
-        self.radius = self.sprite.get_width() / 2
-        self.velocity = Vector2(self.speed, 0).rotate(self.angle)
+        self.life = 3
+        self.energy = 50
+        self.energy_missle = 100
+        self.energy_laser = 400
+        super().__init__(
+			position, _get_sprite("player" + str(player)), 3, angle
+		)
+
         logging.debug(f'init done player {player}')
 
-    def draw(self, surface):
-        self.psx, self.psy = self.position
-		#rotazione immagine
-        rotated_image = rotozoom(self.sprite, self.angle, 1.0)
-		#coordinate immagine ruotata
-        blit_position = Vector2(self.psx, self.psy) - (Vector2(rotated_image.get_size())/2)
+    def change_angle(self, sign=True):
+        direction = 1 if sign else -1
+        self.new_angle += 4 * direction
 
-        surface.blit(rotated_image, blit_position)
+    
 
-    def change_angle(self, value):
-        self.angle = self.angle + value
-        self.velocity = self.velocity.rotate(self.angle)
-
-    def move(self):
-        self.position = self.position + self.velocity
-
-def _get_sprite(name, with_alpha=True):
-    logging.debug(f'loading sprite {name}')
-    try:
-        path = f"./sprites/{name}.png"
-        loaded_sprite = load(path)
-        if with_alpha:
-            return loaded_sprite.convert_alpha()
-        else:
-            return loaded_sprite
-    except Exception as e:
-        logging.exception(f'error loading sprite {name}')
-        return None

@@ -5,6 +5,9 @@ import pygame
 import sys
 from pygame.math import Vector2
 from spaceship import Spaceship
+from missle import Missle
+from planet import Planet
+from laser import Laser
 import logging
 import logmanager
 
@@ -22,7 +25,18 @@ class Spacewar:
 		self.gravity = False
 		self.planet = False
 		self.spaceships = []
-		self.direction = None
+		self.missles1 = []
+		self.missles2 = []
+		self.planetgame = None
+		self.player1 = 1
+		self.player2 = 2
+		self.laser1 = None
+		self.laser2 = None
+
+		self.p1position = (0,0)
+		self.p2position = (0,0)
+		self.p1angle = 0
+		self.p2angle = 0
 
 	def _init_pygame(self):
 		pygame.init()
@@ -42,6 +56,8 @@ class Spacewar:
 			if self.game == 2:
 				#logging.debug('entering "_show_game"')
 				self._show_game()
+			if self.game == 3:
+				self._show_end()
 
 	def _keyboard_input(self):
 		for event in pygame.event.get():
@@ -53,6 +69,13 @@ class Spacewar:
 				self.gravity = not self.gravity
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_p) and self.game == 0:
 				self.planet = not self.planet
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_s) and self.game == 0:
+				if self.player1 == 1:
+					self.player1 = 2
+					self.player2 = 1
+				else:
+					self.player1 = 1
+					self.player2 = 2
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_i) and (self.game == 0 or self.game == 1):
 				if self.game == 0:
 					self.game = 1
@@ -62,45 +85,94 @@ class Spacewar:
 				logging.debug('creating spaceships')
 
 
-				ship1 = Spaceship((self.width*1/4, self.height/2), 0, 1)
+				ship1 = Spaceship((self.width*1/4, self.height/2), 0, self.player1)
 				self.spaceships.append(ship1)
 				logging.debug(f'ship: {len(self.spaceships)}')
 
-				ship2 = Spaceship((self.width*3/4, self.height/2), 180, 2)
+				ship2 = Spaceship((self.width*3/4, self.height/2), 180, self.player2)
 				self.spaceships.append(ship2)
 				logging.debug(f'ship: {len(self.spaceships)}')
 
+				if self.planet:
+					self.planetgame = Planet((self.width/2, self.height/2))
+				
 				logging.debug('setting game state')
 				self.game = 2
 			
 			keys = pygame.key.get_pressed()
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_d) and self.game == 2:
-				self.spaceships[0].change_angle(-5)
+				self.spaceships[0].change_angle(False)
 			if (keys[pygame.K_d]) and self.game == 2:
-				self.spaceships[0].change_angle(-5)
+				self.spaceships[0].change_angle(False)
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_a) and self.game == 2:
-				self.spaceships[0].change_angle(5)
+				self.spaceships[0].change_angle(True)
 			if (keys[pygame.K_a]) and self.game == 2:
-				self.spaceships[0].change_angle(5)
+				self.spaceships[0].change_angle(True)
 
-			if (event.type == pygame.KEYDOWN and event.key == pygame.K_l) and self.game == 2:
-				self.spaceships[1].change_angle(-5)
-			elif (keys[pygame.K_l]) and self.game == 2:
-				self.spaceships[1].change_angle(-5)
-			if (event.type == pygame.KEYDOWN and event.key == pygame.K_j) and self.game == 2:
-				self.spaceships[1].change_angle(5)
-			elif (keys[pygame.K_j]) and self.game == 2:
-				self.spaceships[1].change_angle(5)
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_l) and self.game == 2 and self.singleplayer == False:
+				self.spaceships[1].change_angle(False)
+			if (keys[pygame.K_l]) and self.game == 2 and self.singleplayer == False:
+				self.spaceships[1].change_angle(False)
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_j) and self.game == 2 and self.singleplayer == False:
+				self.spaceships[1].change_angle(True)
+			if (keys[pygame.K_j]) and self.game == 2 and self.singleplayer == False:
+				self.spaceships[1].change_angle(True)
 
 			if (event.type == pygame.KEYDOWN and event.key == pygame.K_w) and self.game == 2:
-				self.spaceships[0].move()
-			elif (keys[pygame.K_w]) and self.game == 2:
-				self.spaceships[0].move()
+				self.spaceships[0].start = True
+				self.spaceships[0].update_velocity()
+			#elif (keys[pygame.K_w]) and self.game == 2:
+				#self.spaceships[0].move()
 
-			if (event.type == pygame.KEYDOWN and event.key == pygame.K_i) and self.game == 2:
-				self.spaceships[1].move()
-			elif (keys[pygame.K_i]) and self.game == 2:
-				self.spaceships[1].move()
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_i) and self.game == 2 and self.singleplayer == False:
+				self.spaceships[1].start = True
+				self.spaceships[1].update_velocity()
+			#elif (keys[pygame.K_i]) and self.game == 2:
+				#self.spaceships[1].move()
+			
+			if self.game == 2:
+				self.p1angle = self.spaceships[0].new_angle
+				self.p2angle = self.spaceships[1].new_angle
+				self.p1position = self.spaceships[0].position
+				self.p2position = self.spaceships[1].position
+
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_e) and self.game == 2:
+				logging.debug('creating missle')
+				if self.spaceships[0].energy > self.spaceships[0].energy_missle:
+					missle = Missle(self.p1position, self.p1angle)
+					self.missles1.append(missle)
+					self.spaceships[0].energy = self.spaceships[0].energy - self.spaceships[0].energy_missle
+			
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_o) and self.game == 2 and self.singleplayer == False:
+				logging.debug('creating missle')
+				if self.spaceships[1].energy > self.spaceships[1].energy_missle:
+					missle = Missle(self.p2position, self.p2angle)
+					self.missles2.append(missle)
+					self.spaceships[1].energy = self.spaceships[1].energy - self.spaceships[1].energy_missle
+			
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_q) and self.game == 2:
+				logging.debug('creating laser')
+				if self.spaceships[0].energy >= self.spaceships[0].energy_laser:
+					self.laser1 = Laser(self.p1position, self.p1angle)
+					self.spaceships[0].energy = self.spaceships[0].energy - self.spaceships[0].energy_laser
+			
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_u) and self.game == 2 and self.singleplayer == False:
+				logging.debug('creating laser')
+				if self.spaceships[1].energy >= self.spaceships[1].energy_laser:
+					self.laser2 = Laser(self.p2position, self.p2angle)
+					self.spaceships[1].energy = self.spaceships[1].energy - self.spaceships[1].energy_laser
+			
+			if (event.type == pygame.KEYDOWN and event.key == pygame.K_h) and self.game == 3:
+				self.spaceships = []
+				self.missles1 = []
+				self.missles2 = []
+				self.planetgame = None
+				self.laser1 = None
+				self.laser2 = None
+				self.game = 0
+				
+
+			
 
 
 	def _write_text(self, string, fontSize, color, x, y):
@@ -134,30 +206,153 @@ class Spacewar:
 		self.screen.fill((0,0,0))
 		self.write = self._write_text("Information", 90, (255,255,255), self.width / 2, self.height / 3.5)
 
-		self.write = self._write_text("player 1: movement with wasd, missle with y and laser with c", 30, (255,255,255), self.width / 2, self.height / 2)
-		self.write = self._write_text("player 2: movement with ijkl, missle with . and laser with n", 30, (255,255,255), self.width / 2, self.height / 2 + 200)
+		self.write = self._write_text("player 1: movement with wad, missle with e and laser with q", 30, (255,255,255), self.width / 2, self.height / 2)
+		self.write = self._write_text("player 2: movement with ijl, missle with o and laser with u", 30, (255,255,255), self.width / 2, self.height / 2 + 200)
 
 		self.write = self._write_text("Press i to back home", 30, (255,255,255), self.width / 3 * 2.5, self.height / 2 + 400)
 		pygame.display.flip()
 
 	def _show_game(self):
 		self.screen.fill((0,0,0))
-		#logging.debug('in loop')
+		self.write = self._write_text("Player 1", 30, (255,255,255), 130, self.height * 1/15)
+		self.write = self._write_text("Life: " + str(self.spaceships[0].life), 25, (255,255,255), 130, self.height * 1/9)
+		self.write = self._write_text("Player 2", 30, (255,255,255), self.width - 130, self.height * 1/15)
+		self.write = self._write_text("Life: " + str(self.spaceships[1].life), 25, (255,255,255), self.width - 130, self.height * 1/9)
 		try:
-			if self.singleplayer:
-				if not self.gravity and not self.planet:
-					for (i, spaceship) in enumerate(self.spaceships):
-						spaceship.draw(self.screen)
-			else:
-				if not self.gravity and not self.planet:
-					for (i, spaceship) in enumerate(self.spaceships):
-						spaceship.draw(self.screen)
+			for (i, spaceship) in enumerate(self.spaceships):
+				spaceship.draw(self.screen)
+			for (i, missle) in enumerate(self.missles1):
+				missle.draw(self.screen)
+			for (i, missle) in enumerate(self.missles2):
+				missle.draw(self.screen)
+			
+			if self.planet:
+				self.planetgame.draw(self.screen)
+			
+
+			for missle in self.missles2:
+				missle.start = True
+				missle.move()
+				if missle.collides_with(self.spaceships[0]):
+					if self.spaceships[0].life > 1:
+						self.spaceships[0].life = self.spaceships[0].life - missle.damage
+						self.missles2.remove(missle)
+						del missle
+					else:
+						self.spaceships[0].life = 0
+						self.game = 3
+				if self.planet and missle.collides_with(self.planetgame):
+					self.missles2.remove(missle)
+					del missle
+			
+			for missle in self.missles1:
+				missle.start = True
+				missle.move()
+				if missle.collides_with(self.spaceships[1]):
+					if self.spaceships[1].life > 1:
+						self.spaceships[1].life = self.spaceships[1].life - missle.damage
+						self.missles1.remove(missle)
+						del missle
+					else:
+						self.spaceships[1].life = 0
+						self.game = 3
+				if self.planet and missle.collides_with(self.planetgame):
+					self.missles1.remove(missle)
+					del missle
+			
+			for spaceship in self.spaceships:
+				spaceship.move()
+				if spaceship.energy < 401:
+					spaceship.energy = spaceship.energy + 1
+				if self.planet and spaceship.collides_with(self.planetgame):
+					spaceship.life = spaceship.life  - self.planetgame.damage
+					self.game = 3
+			
+			if self.spaceships[0].energy >= 400:
+				self.write = self._write_text("Laser ball available", 20, (255,0,0), 160, self.height * 1/6)
+			
+			if self.spaceships[1].energy >= 400:
+				self.write = self._write_text("Laser ball available", 20, (255,0,0), self.width - 160, self.height * 1/6)
+
+			if self.laser1 != None:
+				self.laser1.start = True
+				self.laser1.move()
+				self.laser1.draw(self.screen)
+				if self.laser1.collides_with(self.spaceships[1]):
+					if self.spaceships[1].life > 2:
+						self.spaceships[1].life = self.spaceships[1].life - self.laser1.damage
+						self.laser1 = None
+					else:
+						self.spaceships[1].life = 0
+						self.game = 3
+				if self.planet and self.laser1.collides_with(self.planetgame):
+					self.laser1 = None
+
+			if self.laser2 != None:
+				self.laser2.start = True
+				self.laser2.move()
+				self.laser2.draw(self.screen)
+				if self.laser2.collides_with(self.spaceships[0]):
+					if self.spaceships[0].life > 2:
+						self.spaceships[0].life = self.spaceships[0].life - self.laser2.damage
+						self.laser2 = None
+					else:
+						self.spaceships[0].life = 0
+						self.game = 3
+				if self.planet and self.laser2.collides_with(self.planetgame):
+					self.laser2 = None
+
 		except Exception as e:
 			logging.exception('error loading ships')
+		
+		self._destroy_missles()
+
+		self._destroy_lasers()
+
+		self.check_spaceship_position()
+
+		pygame.display.flip()
+	
+	def _show_end(self):
+		self.screen.fill((0,0,0))
+		self.write = self._write_text("GAME OVER", 90, (255,255,255), self.width / 2, self.height / 3.5)
+		if self.spaceships[0].life > 0 and self.spaceships[1].life < 1:
+			self.write = self._write_text("Player 1 Win", 90, (255,255,255), self.width / 2, self.height / 2)
+		else:
+			self.write = self._write_text("Player 2 Win", 90, (255,255,255), self.width / 2, self.height / 2)
+		
+		self.write = self._write_text("Press h to home", 30, (255,255,255), self.width / 3 * 2.5, self.height / 2 + 400)
+
 		pygame.display.flip()
 
-		
-
+	def _destroy_missles(self):
+		for missle in self.missles1:
+			if (missle.psx > self.width + 60 or missle.psx < 0 - 60) or (missle.psy > self.height + 60 or missle.psy < 0 - 60):
+				self.missles1.remove(missle)
+				del missle
+		for missle in self.missles2:
+			if (missle.psx > self.width + 60 or missle.psx < 0 - 60) or (missle.psy > self.height + 60 or missle.psy < 0 - 60):
+				self.missles2.remove(missle)
+				del missle
+	
+	def _destroy_lasers(self):
+		if self.laser1 != None:
+			if (self.laser1.psx > self.width + 100 or self.laser1.psx < 0 - 100) or (self.laser1.psy > self.height + 100 or self.laser1.psy < 0 - 100):
+				self.laser1 = None
+		if self.laser2 != None:
+			if (self.laser2.psx > self.width + 100 or self.laser2.psx < 0 - 100) or (self.laser2.psy > self.height + 100 or self.laser2.psy < 0 - 100):
+				self.laser2 = None
+	
+	def check_spaceship_position(self):
+		for spaceship in self.spaceships:
+			if spaceship.psx > self.width + 30:
+				spaceship.position = (0 - 30, spaceship.psy)
+			if spaceship.psx < 0 - 30:
+				spaceship.position = (self.width + 30, spaceship.psy)
+			if spaceship.psy > self.height + 30:
+				spaceship.position = (spaceship.psx, 0 - 30)
+			if spaceship.psy < 0 - 30:
+				spaceship.position = (spaceship.psx, self.height + 30)
 
 
 
